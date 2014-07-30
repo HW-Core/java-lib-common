@@ -3,7 +3,7 @@
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
 
-package Hw2.Java.library;
+package Hw2.Java.library.common;
 
 import java.awt.Container;
 import java.awt.Dialog;
