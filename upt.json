@@ -7,6 +7,6 @@
     },
     "//": "ensure we keep the right git repository configurations",
     "keep": [
-        ".git"
+        ".git/config"
     ]
 }
