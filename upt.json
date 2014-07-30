@@ -1,0 +1,12 @@
+{
+    "name": "Hw2/Java/library",
+    "license": "http://www.hyperweb2.com/terms",
+    "dependencies": {
+    },
+    "devDependencies": {
+    },
+    "//": "ensure we keep the right git repository configurations",
+    "keep": [
+        ".git"
+    ]
+}
