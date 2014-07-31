@@ -5,7 +5,7 @@
     },
     "devDependencies": {
     },
-    "//": "ensure we keep the right git repository configurations",
+    "_comment_keep": "ensure we keep the right git repository configurations",
     "keep": [
         ".git/config"
     ]
