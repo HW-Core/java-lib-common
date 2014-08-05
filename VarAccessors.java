@@ -2,15 +2,14 @@
  * Copyright (C) 2007 - 2014 Hyperweb2 All rights reserved.
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
-
 package hw2.java.library.common;
 
 public class VarAccessors<T> {
 
     public static VarAccessors createAccessors(Object obj) {
         return obj instanceof Boolean
-            ? new VarAccessors.Bool((Boolean) obj)
-            : new VarAccessors</*generic type*/>(obj);
+                ? new VarAccessors.Bool((Boolean) obj)
+                : new VarAccessors</*generic type*/>(obj);
     }
 
     protected T val;

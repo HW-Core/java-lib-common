@@ -2,7 +2,6 @@
  * Copyright (C) 2007 - 2014 Hyperweb2 All rights reserved.
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
-
 package hw2.java.library.common;
 
 import java.awt.event.KeyAdapter;
@@ -29,7 +28,7 @@ public class JTextConsole {
      * @param out the out
      * @param in the in
      */
-    public static void console(final JTextArea output,final JTextComponent input, final InputStream out, final PrintWriter in) {
+    public static void console(final JTextArea output, final JTextComponent input, final InputStream out, final PrintWriter in) {
         // handle "System.out"
         new SwingWorker<Void, String>() {
             @Override
