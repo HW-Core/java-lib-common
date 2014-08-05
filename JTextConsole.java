@@ -3,7 +3,7 @@
  * GNU General Public License version 3; see www.hyperweb2.com/terms/
  */
 
-package Hw2.Java.library.common;
+package hw2.java.library.common;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
