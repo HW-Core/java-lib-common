@@ -4,7 +4,7 @@
  */
 package hw2.java.library.common;
 
-public class MyVar {
+public class Var {
 
     /**
      * The value.
@@ -16,8 +16,12 @@ public class MyVar {
      */
     public String name;
 
-    public MyVar(Object value, String name) {
+    public Var(Object value, String name) {
         this.value = value;
         this.name = name;
+    }
+    
+    public Var(Object value) {
+        this.value = value;
     }
 }

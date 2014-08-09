@@ -16,7 +16,7 @@ import java.util.Date;
  * for date operations.
  *
  */
-public class MyDate implements Serializable, Cloneable {
+public class DateTools implements Serializable, Cloneable {
 
     /**
      * The Constant defFormat.
@@ -78,7 +78,7 @@ public class MyDate implements Serializable, Cloneable {
      * @param format the format
      * @param date the date
      */
-    public MyDate(String format, Calendar date) {
+    public DateTools(String format, Calendar date) {
         this.format = format;
         this.calendar = date;
     }
@@ -86,8 +86,8 @@ public class MyDate implements Serializable, Cloneable {
     /**
      * Instantiates a new my date.
      */
-    public MyDate() {
-        this(MyDate.defFormat, Calendar.getInstance());
+    public DateTools() {
+        this(DateTools.defFormat, Calendar.getInstance());
     }
 
     /**
@@ -97,7 +97,7 @@ public class MyDate implements Serializable, Cloneable {
      * @return the my date
      * @throws Exception the exception
      */
-    public MyDate fromString(String date) throws Exception {
+    public DateTools fromString(String date) throws Exception {
         // Date now = new Date();
         DateFormat df = new SimpleDateFormat(this.format);
         df.setLenient(false);
@@ -186,7 +186,7 @@ public class MyDate implements Serializable, Cloneable {
      * @param endDate the end date
      * @return the long
      */
-    public static long dayDiff(final MyDate startDate, final MyDate endDate) {
+    public static long dayDiff(final DateTools startDate, final DateTools endDate) {
         return dayDiff(startDate.getCalendar(), endDate.getCalendar());
     }
 }

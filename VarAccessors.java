@@ -5,13 +5,6 @@
 package hw2.java.library.common;
 
 public class VarAccessors<T> {
-
-    public static VarAccessors createAccessors(Object obj) {
-        return obj instanceof Boolean
-                ? new VarAccessors.Bool((Boolean) obj)
-                : new VarAccessors</*generic type*/>(obj);
-    }
-
     protected T val;
 
     public VarAccessors(T val) {
@@ -25,18 +18,8 @@ public class VarAccessors<T> {
     public void setValue(T val) {
         this.val = val;
     }
-
-    /**
-     * Subtype of RecordValue
-     */
-    public static class Bool extends VarAccessors<Boolean> {
-
-        public Bool(boolean val) {
-            super(val);
-        }
-
-        public boolean isTrue() {
-            return val == true;
-        }
+    
+    public boolean isTrue() {
+        return this.val instanceof Boolean ? (Boolean)val == true : val != null;
     }
 }

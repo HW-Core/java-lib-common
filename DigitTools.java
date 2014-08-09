@@ -4,25 +4,13 @@
  */
 package hw2.java.library.common;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
-public class SharedDefines {
-
-    private static final SimpleDateFormat dataFormatter = new SimpleDateFormat("dd/MM/yyyy");
-
+public class DigitTools {
     private static NumberFormat currencyFormat;
     private static NumberFormat integerFormat;
-
-    public static String getDataFormat(Date data) {
-        return dataFormatter.format(data);
-    }
-
-    static {
-
-    }
 
     public static NumberFormat getCurrencyFormat() {
         if (currencyFormat == null) {
@@ -44,5 +32,17 @@ public class SharedDefines {
         }
 
         return integerFormat;
+    }
+    
+    
+    /**
+     * Round decimal pos.
+     *
+     * @param val the val
+     * @param pos the pos
+     * @return the double
+     */
+    public static double RoundDecimalPos(double val, int pos) {
+        return new BigDecimal(val).setScale(pos, RoundingMode.HALF_UP).doubleValue();
     }
 }
