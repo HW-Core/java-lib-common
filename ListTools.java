@@ -6,9 +6,12 @@ package hw2.java.library.common;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
-public class ListTools {
+public abstract class ListTools {
 
     /**
      * Metodo per clonare una lista
@@ -16,7 +19,7 @@ public class ListTools {
      * @param dest lista di destinazione
      * @param src lista da cui copiare i dati
      */
-    private <T> void cloneList(List<T> dest, List<? extends T> src) {
+    public static <T> void cloneList(List<T> dest, List<? extends T> src) {
         dest.clear();
 
         // Tipo Aggiungi
@@ -41,7 +44,7 @@ public class ListTools {
      * @return una nuova lista che a'� il risultato dell'esclusione dei dati di
      * list dal comparator
      */
-    public <T extends Comparable<T>> List<T> listBinaryExclusion(List<T> list, List<T> comparator) {
+    public static <T extends Comparable<T>> List<T> listBinaryExclusion(List<T> list, List<T> comparator) {
         List<T> result = new ArrayList<T>();
         List<T> copiedList = new ArrayList<T>();
 
@@ -66,12 +69,25 @@ public class ListTools {
      * @param multipler moltiplica la dimensione della lista per il valore
      * passato
      */
-    public <T> void ListCacheBenchmark(List<T> list, int multipler) {
+    public static <T> void ListCacheBenchmark(List<T> list, int multipler) {
         List<T> copy = new ArrayList<T>();
         cloneList(copy, list);
 
         for (int i = 0; i < multipler; i++) {
             list.addAll(copy);
         }
+    }
+
+    public static <T, K, V> Map<K, V> filterMapByValues(Map<K, V> map, Class<T> filter, boolean strict) {
+
+        Map<K, V> filteredMap = new HashMap<>();
+
+        for (Entry<K, V> entry : map.entrySet()) {
+            if ((!strict && filter.isInstance(entry)) || (strict)) {
+                filteredMap.put(entry.getKey(), entry.getValue());
+            }
+        }
+
+        return filteredMap;
     }
 }

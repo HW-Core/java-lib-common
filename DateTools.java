@@ -6,7 +6,6 @@ package hw2.java.library.common;
 
 import java.io.Serializable;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -102,11 +101,18 @@ public class DateTools implements Serializable, Cloneable {
         DateFormat df = new SimpleDateFormat(this.format);
         df.setLenient(false);
 
-        try {
-            this.calendar.setTime(df.parse(date));
-        } catch (ParseException e) {
-            throw new Exception("Unable to parse this date: " + date);
-        }
+        return this.fromDate(df.parse(date));
+    }
+
+    /**
+     * From Date.
+     *
+     * @param date the date
+     * @return the my date
+     * @throws Exception the exception
+     */
+    public DateTools fromDate(Date date) {
+        this.calendar.setTime(date);
 
         return this;
     }

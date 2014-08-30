@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package hw2.java.library.common;
 
 import java.awt.Container;
@@ -21,6 +20,7 @@ import javax.swing.JInternalFrame;
  * @author giuseppe
  */
 public class GuiTools {
+
     /**
      * Fix min size.
      *
@@ -49,9 +49,9 @@ public class GuiTools {
             }
         });
     }
-    
+
     /**
-     * Recupera l'indice del vettoriale della lista applicata al modello della
+     * Recupera l'indice vettoriale della lista applicata al modello della
      * tabella
      *
      * @param jTable la tabella da cui recuperare l'indice
@@ -75,7 +75,6 @@ public class GuiTools {
         return modelRow;
     }
 
-    
     public static void setWindowCenterPosition(Frame frame) {
         setWindowCenterPosition((Window) frame);
     }
@@ -83,8 +82,7 @@ public class GuiTools {
     public static void setWindowCenterPosition(Dialog frame) {
         setWindowCenterPosition((Window) frame);
     }
-    
-    
+
     /**
      * Imposta la posizione di una qualsiasi finestra al centro dello schermo
      *
@@ -94,8 +92,8 @@ public class GuiTools {
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         frame.setBounds((screenSize.width - frame.getHeight()) / 2, (screenSize.height - frame.getWidth()) / 2, frame.getWidth(), frame.getHeight());
     }
-    
-        /**
+
+    /**
      * Mostra l'internal frame o la finestra esterna
      *
      * @param iFrame
