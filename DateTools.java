@@ -152,7 +152,11 @@ public class DateTools implements Serializable, Cloneable {
      */
     @Override
     public String toString() {
-        DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
+        return toString(DateFormat.LONG);
+    }
+
+    public String toString(int dateFormat) {
+        DateFormat df = DateFormat.getDateInstance(dateFormat);
         return df.format(this.calendar.getTime());
     }
 
