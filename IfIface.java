@@ -4,7 +4,7 @@
  */
 package hw2.java.library.common;
 
-public interface Iface {
+public interface IfIface {
 
     public If.Conditions _if(Object... _this);
 }

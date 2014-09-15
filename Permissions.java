@@ -5,13 +5,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author giuseppe
- */
 public class Permissions {
-
-    protected Map<Integer, Value> perms; // level - mask
 
     public static class Value {
 
@@ -28,14 +22,14 @@ public class Permissions {
         }
 
         /**
-         * 
+         *
          * @param own permissions on own data
          * @param other extends own permissions to other
          */
         public Value(PList[] own, boolean other) {
             this(own, other ? own : new PList[]{});
         }
-        
+
         public Value(PList[] own) {
             this(own, false);
         }
@@ -62,12 +56,24 @@ public class Permissions {
         }
     }
 
-    public Permissions(Map<Integer,Value> perms) {
-        this.perms=perms;
+    protected Map<Integer, Value> perms; // level - mask
+    protected int level;
+
+    public Permissions(int level, Map<Integer, Value> perms) {
+        this.perms = perms;
+        this.level = level;
     }
 
     public Permissions() {
-        this.perms=new HashMap<>();
+        this(0, new HashMap<Integer, Value>());
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     protected void setPerms(Map<Integer, Value> perms) {
@@ -87,23 +93,34 @@ public class Permissions {
         return res;
     }
 
-    public boolean can(int userLvl, boolean other, PList... perms) {
+    /**
+     * This method allow to specify an arbitrary level not related to class
+     * instance
+     *
+     * @param level
+     * @param other
+     * @param perms
+     * @return
+     */
+    public boolean can(int level, boolean other, PList... perms) {
         // acquire permissions of the user level
-        Value v = this.perms.get(userLvl);
+        Value v = this.perms.get(level);
         // if no permission specified for user level, then deny everything
-        if (v==null)
+        if (v == null) {
             return false;
-        
+        }
+
         ArrayList<Integer> pList = DigitTools.bitMask(other ? v.other : v.own);
         // if there are no permissions or is explicity DENIED, then return false
-        if (pList.isEmpty() || pList.contains(PList.DENIED))
+        if (pList.isEmpty() || pList.contains(PList.DENIED)) {
             return false;
-        
+        }
+
         // if contains ALL, then we can do everything
         if (pList.contains(PList.ALL)) {
             return true;
         }
-        
+
         // convert passed list to integer list 
         ArrayList<Integer> passedList = new ArrayList<>();
         for (PList val : Arrays.asList(perms)) {
@@ -119,14 +136,18 @@ public class Permissions {
         return true;
     }
 
+    public boolean can(boolean other, PList... perms) {
+        return this.can(this.level, other, perms);
+    }
+
     /**
      * Check in both own and other permissions
      *
-     * @param userLvl
+     * @param level
      * @param perms
      * @return
      */
-    public boolean can(int userLvl, PList... perms) {
-        return this.can(userLvl, true, perms) && this.can(userLvl, false, perms);
+    public boolean can(PList... perms) {
+        return this.can(true, perms) && this.can(false, perms);
     }
 }

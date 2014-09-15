@@ -5,6 +5,7 @@
 package hw2.java.library.common;
 
 public class VarAccessors<T> {
+
     protected T val;
 
     public VarAccessors(T val) {
@@ -18,8 +19,8 @@ public class VarAccessors<T> {
     public void setValue(T val) {
         this.val = val;
     }
-    
+
     public boolean isTrue() {
-        return this.val instanceof Boolean ? (Boolean)val == true : val != null;
+        return this.val instanceof Boolean ? (Boolean) val == true : val != null;
     }
 }

@@ -3,14 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package hw2.java.library.common;
 
-/**
- *
- * @author giuseppe
- */
 public class OutputTools {
+
     /**
      * Prints the var using newline
      *

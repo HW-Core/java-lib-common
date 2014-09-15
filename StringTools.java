@@ -15,7 +15,6 @@ import javax.swing.text.MaskFormatter;
  */
 public class StringTools {
 
-
     /**
      * Formatted mask.
      *
@@ -37,5 +36,39 @@ public class StringTools {
         }
 
         return mask;
+    }
+
+    /**
+     * Similar to StringUtils method, but it avoid empty/null values
+     *
+     * @param sep
+     * @param argStrings
+     * @return
+     */
+    public static <T> String join(String sep, T... argStrings) {
+        if (argStrings == null) {
+            return "";
+        }
+        String ret = "";
+
+        for (int i = 0; i < argStrings.length - 1; i++) {
+            T v1 = argStrings[i];
+            if (v1 != null) {
+                String v2 = v1.toString();
+                if (!v2.isEmpty()) {
+                    ret += v2 + sep;
+                }
+            }
+        }
+
+        T v1 = argStrings[argStrings.length - 1];
+        if (v1 != null) {
+            String v2 = v1.toString();
+            if (!v2.isEmpty()) {
+                ret += v2;
+            }
+        }
+
+        return ret;
     }
 }

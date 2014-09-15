@@ -8,7 +8,7 @@ package hw2.java.library.common;
  * Custom object class for Canonical methods
  *
  */
-public class MyObject {
+public abstract class MyObject extends Singleton<MyObject> {
 
     @Override
     public boolean equals(Object obj) {

@@ -4,6 +4,9 @@
  */
 package hw2.java.library.common;
 
+/**
+ * deprecated , Entry is preferred
+ */
 public class Var {
 
     /**
@@ -20,7 +23,7 @@ public class Var {
         this.value = value;
         this.name = name;
     }
-    
+
     public Var(Object value) {
         this.value = value;
     }

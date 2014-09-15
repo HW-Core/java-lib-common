@@ -5,7 +5,7 @@
 package hw2.java.library.common;
 
 public class StatusVar extends VarAccessors {
-    
+
     private boolean changed = false;
 
     public StatusVar(Object val) {
@@ -14,9 +14,10 @@ public class StatusVar extends VarAccessors {
 
     @Override
     public void setValue(Object val) {
-        if (!val.equals(this.getValue()))
-            changed=true;
-        
+        if (!val.equals(this.getValue())) {
+            changed = true;
+        }
+
         super.setValue(val);
     }
 
