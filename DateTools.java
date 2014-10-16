@@ -86,7 +86,11 @@ public class DateTools implements Serializable, Cloneable {
      * Instantiates a new my date.
      */
     public DateTools() {
-        this(DateTools.defFormat, Calendar.getInstance());
+        this(DateTools.defFormat);
+    }
+    
+    public DateTools(String format) {
+        this(format, Calendar.getInstance());
     }
 
     /**
@@ -153,6 +157,10 @@ public class DateTools implements Serializable, Cloneable {
     @Override
     public String toString() {
         return toString(DateFormat.LONG);
+    }
+    
+    public String toString(String format) {
+        return new SimpleDateFormat(format).format(this.getDate());
     }
 
     public String toString(int dateFormat) {
