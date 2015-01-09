@@ -2,6 +2,7 @@
     "name": "hw2/modules/java/src/library/common",
     "license": "http://www.hyperweb2.com/terms",
     "dependencies": {
+        "hw2/modules/dep/java/javax/servlet" : "http://www.java2s.com/Code/JarDownload/javax.servlet/javax.servlet-3.0.jar.zip"
     },
     "devDependencies": {
     },

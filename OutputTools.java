@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hw2.java.library.common;
+package hw2.modules.java.src.library.common;
 
 public class OutputTools {
 

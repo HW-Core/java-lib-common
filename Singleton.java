@@ -2,10 +2,12 @@
  *  * Copyright (C) 2007 - 2014 Hyperweb2 All rights reserved
  *  * GNU General Public License version 3; see http://www.hyperweb2.com/terms/
  */
-package hw2.java.library.common;
+package hw2.modules.java.src.library.common;
 
 import java.lang.reflect.Constructor;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class Singleton<T> {
 
@@ -27,8 +29,7 @@ public abstract class Singleton<T> {
                 instance = ct[0].newInstance();
                 instances.put(c.getName(), instance);
             } catch (Exception ex) {
-                //Logger.getLogger(Singleton.class.getName()).log(Level.SEVERE, null, ex);
-                System.out.println("Eh? " + ex.getMessage());
+                Logger.getLogger(Singleton.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 

@@ -1,4 +1,4 @@
-package hw2.java.library.common;
+package hw2.modules.java.src.library.common;
 
 import java.util.ArrayList;
 import java.util.Arrays;
