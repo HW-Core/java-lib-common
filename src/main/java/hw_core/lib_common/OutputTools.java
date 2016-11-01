@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package hwcore.modules.java.src.library.common;
+package hw_core.lib_common;
 
 public class OutputTools {
 

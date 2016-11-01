@@ -1,4 +1,4 @@
-package hwcore.modules.java.src.library.common;
+package hw_core.lib_common;
 
 import java.util.ArrayList;
 import java.util.Arrays;
