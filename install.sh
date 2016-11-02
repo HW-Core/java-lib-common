@@ -13,7 +13,7 @@ mod_path="hw-core/js-modules/"
 # ADD DEPENDENCIES
 #
 
-Joiner:add_file "http://www.java2s.com/Code/JarDownload/javax.servlet/javax.servlet-3.0.jar.zip"      "$modpath/javax/servlet/javax.servlet-3.0.jar.zip" && unzip "$modpath/javax/servlet/javax.servlet-3.0.jar.zip"
+Joiner:add_file "http://www.java2s.com/Code/JarDownload/javax.servlet/javax.servlet-3.0.jar.zip"      "$mod_path/javax/servlet/javax.servlet-3.0.jar.zip" && unzip "$mod_path/javax/servlet/javax.servlet-3.0.jar.zip"
 
 if Joiner:with_dev ; then
     # nothing to do for now
